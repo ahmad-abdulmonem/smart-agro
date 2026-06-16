@@ -16,12 +16,12 @@ export default function WeAreLeader() {
                 }}
             />
 
-            <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-8 sm:gap-6 w-full px-6 sm:px-10 lg:px-[12.5%] text-center sm:text-left">
-                <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-[50px]">
+            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-8 lg:gap-6 w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-[12.5%] py-10 sm:py-12 lg:py-0 text-center lg:text-left">
+                <div className="flex flex-col lg:flex-row items-center gap-5 lg:gap-[50px]">
                     <div className="w-[70px] h-[70px] sm:w-[90px] sm:h-[90px] rounded-full bg-[#1A1A1A] flex items-center justify-center shrink-0">
                         <Image src="/platns_icon.png" alt="growth icon" width={50} height={50} className="w-9 h-9 sm:w-[50px] sm:h-[50px]" />
                     </div>
-                    <p className="text-[#344C31] font-johnstownDemo text-2xl sm:text-3xl lg:text-[50px]">
+                    <p className="text-[#344C31] font-johnstownDemo text-xl sm:text-2xl md:text-3xl lg:text-[50px] leading-tight max-w-[280px] sm:max-w-none">
                         We are Leader in Agriculture Market
                     </p>
                 </div>

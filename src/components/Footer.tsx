@@ -50,9 +50,9 @@ export default function Footer() {
 
     return (
         <footer className="relative bg-[#334B35]">
-            <div className="px-6 sm:px-10 lg:px-[12.5%] py-12 sm:py-16 lg:py-[90px] flex flex-wrap justify-center sm:justify-between text-center sm:text-left gap-y-12 gap-x-10">
+            <div className="px-6 sm:px-10 lg:px-[12.5%] py-12 sm:py-16 lg:py-[90px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr] gap-y-12 gap-x-10 max-w-[1600px] mx-auto">
                 {/* Logo + Description + Socials */}
-                <div className="flex flex-col items-center sm:items-start gap-[34px] w-full sm:w-auto sm:max-w-[630px]">
+                <div className="flex flex-col items-center sm:items-start gap-[34px] sm:col-span-2 lg:col-span-1">
                     <div className="flex flex-col gap-[25px]">
                         <Image
                             src="/logo.png"
@@ -92,8 +92,8 @@ export default function Footer() {
                 </div>
 
                 {/* Newsletter */}
-                <div className="flex flex-col items-center sm:items-start gap-6 w-full sm:w-auto">
-                    <div className="flex flex-col gap-[30px] max-w-[315px]">
+                <div className="flex flex-col items-center sm:items-start gap-6 w-full sm:col-span-2 lg:col-span-1">
+                    <div className="flex flex-col gap-[30px] max-w-[315px] w-full">
                         <p className="text-white font-livvic text-[22px] font-semibold">
                             Newsletter
                         </p>

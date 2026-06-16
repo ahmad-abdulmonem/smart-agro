@@ -19,12 +19,18 @@ export default function HeroSection() {
             <div
                 className="absolute inset-0"
                 style={{
+                    background: 'linear-gradient(to bottom, rgba(38,60,40,0.85) 0%, rgba(38,60,40,0.7) 50%, rgba(38,60,40,0.5) 100%)',
+                }}
+            />
+            <div
+                className="absolute inset-0 hidden sm:block"
+                style={{
                     background: 'linear-gradient(to right, rgba(38,60,40,1) 0%, rgba(38,60,40,0.8) 40%, rgba(0,0,0,0) 75%, rgba(38,60,40,0.22) 100%)'
                 }}
             />
 
             {/* Content */}
-            <div className="relative z-10 px-6 sm:px-10 lg:px-[241px] flex flex-col gap-4 sm:gap-6 mt-20 sm:mt-28 lg:mt-[160px]">
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-[12.5%] flex flex-col gap-4 sm:gap-6 mt-20 sm:mt-28 lg:mt-[160px]">
 
                 {/* Original & Natural */}
                 <div className="flex flex-col gap-1 w-fit">
@@ -33,8 +39,8 @@ export default function HeroSection() {
                 </div>
 
                 {/* Agriculture Matter + Leaf */}
-                <div className="flex items-center gap-3 sm:gap-4">
-                    <h1 className={`${livvic.className} text-[#F7C35F] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold`}>
+                <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+                    <h1 className={`${livvic.className} text-[#F7C35F] text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight`}>
                         Agriculture Matter
                     </h1>
                     <Image
@@ -47,12 +53,12 @@ export default function HeroSection() {
                 </div>
 
                 {/* Good production */}
-                <h2 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold -mt-2 lg:-mt-4">
+                <h2 className="text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold -mt-2 lg:-mt-4 leading-tight">
                     Good production
                 </h2>
 
                 {/* Description */}
-                <p className="text-white text-sm sm:text-base max-w-lg">
+                <p className="text-white text-sm sm:text-base max-w-lg leading-relaxed">
                     Dissuade ecstatic and properly saw entirely sir why laughter endeavor.
                     In on my jointure horrible margaret suitable he speedily.
                 </p>

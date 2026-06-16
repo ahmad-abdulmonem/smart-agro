@@ -15,7 +15,7 @@ export default function ModernAgriculture() {
                 </div>
 
                 {/* المحتوى */}
-                <div className="relative flex-1 px-6 py-12 sm:px-10 sm:py-16 lg:pt-20 lg:pl-[109px] lg:pr-[240px]">
+                <div className="relative flex-1 px-6 py-12 sm:px-10 sm:py-16 lg:py-20 lg:pl-12 lg:pr-16 xl:pl-[109px] xl:pr-[240px]">
                     <p className="text-white font-centuryGothic text-base sm:text-lg lg:text-xl tracking-wide">
                         MODERN AGRICULTURE
                     </p>
@@ -74,8 +74,8 @@ export default function ModernAgriculture() {
                 <div className="absolute left-0 top-32 w-[79px] h-20 rounded-[10px] bg-white/[0.15]" />
             </div>
 
-            {/* شعار Organic (ديسكتوب فقط) */}
-            <div className="hidden lg:block absolute left-[780px] top-9 w-[100px] h-[100px]">
+            {/* Organic stamp (xl+ only) */}
+            <div className="hidden xl:block absolute left-[780px] top-9 w-[100px] h-[100px]">
                 <Image src="/stamp.png" alt="Organic certified" width={100} height={100} />
             </div>
         </section>

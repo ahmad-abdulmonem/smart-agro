@@ -66,9 +66,9 @@ export default function RecentlyCompleted() {
                         return (
                             <div
                                 key={index}
-                                className={`group relative w-[80vw] sm:w-[340px] lg:w-[318px] max-w-[318px] h-[260px] sm:h-[320px] lg:h-[350px] rounded-[10px] overflow-hidden cursor-pointer flex-shrink-0
+                                className={`group relative w-[85vw] max-w-[318px] sm:w-[340px] lg:w-[318px] h-[260px] sm:h-[320px] lg:h-[350px] rounded-[10px] overflow-hidden cursor-pointer flex-shrink-0
                                             border transition-all duration-500 ${isActive
-                                        ? "border-[#F7C35F] scale-110 z-10"
+                                        ? "border-[#F7C35F] scale-105 sm:scale-110 z-10"
                                         : "border-transparent scale-100"
                                     }`}
                             >

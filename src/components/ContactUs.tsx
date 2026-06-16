@@ -40,7 +40,7 @@ export default function ContactUs() {
                 }}
             />
 
-            <div className="relative z-10 flex flex-col lg:flex-row gap-12 sm:gap-16 lg:gap-[133px] py-16 sm:py-20 lg:py-[100px] px-6 sm:px-10 lg:px-[12.5%]">
+            <div className="relative z-10 flex flex-col lg:flex-row gap-12 sm:gap-16 lg:gap-20 xl:gap-[133px] py-16 sm:py-20 lg:py-[100px] px-6 sm:px-10 lg:px-[12.5%] max-w-[1600px] mx-auto">
                 {/* معلومات التواصل */}
                 <div className="flex flex-col gap-8 sm:gap-[45px]">
                     <div className="flex flex-col gap-4 sm:gap-5">
@@ -86,7 +86,7 @@ export default function ContactUs() {
                 {/* الفورم */}
                 <form
                     onSubmit={handleSubmit}
-                    className="flex flex-col gap-[30px] w-full max-w-[738px]"
+                    className="flex flex-col gap-[30px] w-full lg:flex-1 lg:max-w-[738px]"
                 >
                     <input
                         type="text"

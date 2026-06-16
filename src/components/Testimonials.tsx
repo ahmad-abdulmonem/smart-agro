@@ -64,8 +64,8 @@ export default function Testimonials() {
                 }}
             />
 
-            <div className="relative z-10 px-[12.5%]">
-                {/* العنوان */}
+            <div className="relative z-10 px-6 sm:px-10 lg:px-[12.5%] max-w-[1600px] mx-auto">
+                {/* Title */}
                 <div className="text-center">
                     <p className="text-[#ACACAC] text-sm tracking-[3px] uppercase mb-4">
                         Our Testimonials
@@ -76,10 +76,10 @@ export default function Testimonials() {
                     <div className="w-12 h-[2px] bg-[#F7C35F] mx-auto mt-6" />
                 </div>
 
-                {/* المحتوى */}
-                <div className="flex flex-col md:flex-row justify-center gap-10 md:gap-14 mt-12 sm:mt-16 md:mt-20">
-                    {/* الصورة + علامة التنصيص */}
-                    <div className="relative shrink-0 w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] mx-auto md:mx-0">
+                {/* Content */}
+                <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-10 md:gap-14 mt-12 sm:mt-16 md:mt-20">
+                    {/* Image + quote mark */}
+                    <div className="relative shrink-0 w-[200px] h-[200px] sm:w-[280px] sm:h-[280px]">
                         <div
                             key={activeIndex}
                             className="w-full h-full rounded-full overflow-hidden transition-opacity duration-500"
@@ -101,12 +101,12 @@ export default function Testimonials() {
                         />
                     </div>
 
-                    {/* النص */}
+                    {/* Text */}
                     <div
                         key={`text-${activeIndex}`}
-                        className="relative max-w-xl transition-opacity duration-500"
+                        className="relative w-full max-w-xl text-center md:text-left transition-opacity duration-500"
                     >
-                        <p className="text-white/80 leading-[1.8] text-[15px]">
+                        <p className="text-white/80 leading-[1.8] text-sm sm:text-[15px]">
                             &quot;{current.quote}&quot;
                         </p>
                         <h4 className="text-white font-bold mt-6">{current.name}</h4>
@@ -114,8 +114,8 @@ export default function Testimonials() {
                     </div>
                 </div>
 
-                {/* مؤشرات الكاروسيل */}
-                <div className="flex justify-center gap-2 mt-16">
+                {/* Carousel dots */}
+                <div className="flex justify-center gap-2 mt-12 sm:mt-16">
                     {testimonials.map((_, index) => (
                         <button
                             key={index}

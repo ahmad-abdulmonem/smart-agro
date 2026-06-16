@@ -39,6 +39,11 @@ body {
 html, body {
   height: 100%;
   margin: 0;
+  overflow-x: hidden;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 @keyframes marquee {

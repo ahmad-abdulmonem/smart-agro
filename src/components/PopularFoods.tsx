@@ -11,7 +11,7 @@ const foods = [
 
 export default function PopularFoods() {
     return (
-        <section className="w-full bg-[#263C28] py-16 sm:py-20 flex flex-col items-center gap-10 sm:gap-12 px-6">
+        <section className="w-full bg-[#263C28] py-16 sm:py-20 flex flex-col items-center gap-10 sm:gap-12 px-6 sm:px-10 lg:px-[12.5%]">
 
             {/* Title */}
             <div className="flex flex-col items-center gap-3 text-center">

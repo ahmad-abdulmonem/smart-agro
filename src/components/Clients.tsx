@@ -25,7 +25,7 @@ export default function Clients() {
                 {displayLogos.map((logo, index) => (
                     <div
                         key={index}
-                        className="flex items-center justify-center w-[220px] h-[95px] shrink-0"
+                        className="flex items-center justify-center w-[150px] h-[65px] sm:w-[220px] sm:h-[95px] shrink-0"
                     >
                         <Image
                             src={logo}

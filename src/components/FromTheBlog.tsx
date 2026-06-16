@@ -107,7 +107,7 @@ export default function FromTheBlog() {
 
                             {/* المحتوى */}
                             <div className="p-5">
-                                <div className="flex items-center gap-5">
+                                <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
                                     <div className="flex items-center gap-[7px]">
                                         <AuthorIcon />
                                         <span className="text-white font-centuryGothic text-sm">
@@ -121,7 +121,7 @@ export default function FromTheBlog() {
                                         </span>
                                     </div>
                                 </div>
-                                <h3 className="text-white font-livvic text-2xl font-bold leading-snug mt-6">
+                                <h3 className="text-white font-livvic text-lg sm:text-xl lg:text-2xl font-bold leading-snug mt-4 sm:mt-6">
                                     {post.title}
                                 </h3>
                             </div>
