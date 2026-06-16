@@ -1,26 +1,55 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: 'CenturyGothic';
+  src: url('/fonts/centurygothic.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'CenturyGothic';
+  src: url('/fonts/centurygothic_bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Mistral';
+  src: url('/fonts/mistral.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Johnstown Demo';
+  src: url('/fonts/johnstown_demo.ttf') format('truetype');
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-livvic: var(--font-livvic);
+  --font-inter: var(--font-inter);
+  --font-centuryGothic: 'CenturyGothic', sans-serif;
+  --font-johnstownDemo: 'Johnstown Demo', cursive;
+  --font-mistral: 'Mistral', cursive;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #263C28;
+  color: #ffffff;
+  font-family: 'CenturyGothic', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-marquee {
+    animation: marquee 25s linear infinite;
 }
