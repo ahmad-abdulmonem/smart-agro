@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 const baseProjects = [
@@ -14,9 +14,24 @@ const projects = [...baseProjects, ...baseProjects];
 
 export default function RecentlyCompleted() {
     const [activeIndex, setActiveIndex] = useState(0);
-    const cardWidth = 318;
-    const gap = 24;
+    const [slideStep, setSlideStep] = useState(0);
+    const trackRef = useRef<HTMLDivElement>(null);
     const totalSlides = baseProjects.length;
+
+    // Measure the real rendered width of a card + gap so the slide distance
+    // always matches the current breakpoint, instead of a hardcoded px value.
+    useEffect(() => {
+        const measure = () => {
+            const track = trackRef.current;
+            const firstCard = track?.children[0] as HTMLElement | undefined;
+            if (!track || !firstCard) return;
+            const gap = parseFloat(getComputedStyle(track).columnGap || "0");
+            setSlideStep(firstCard.offsetWidth + gap);
+        };
+        measure();
+        window.addEventListener("resize", measure);
+        return () => window.removeEventListener("resize", measure);
+    }, []);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -26,23 +41,24 @@ export default function RecentlyCompleted() {
     }, [totalSlides]);
 
     return (
-        <section className="w-full bg-[#263C28] py-20 flex flex-col items-center gap-12 overflow-hidden">
+        <section className="w-full bg-[#263C28] py-16 sm:py-20 flex flex-col items-center gap-10 sm:gap-12 overflow-hidden">
 
             {/* Title */}
-            <div className="flex flex-col items-center gap-3">
+            <div className="flex flex-col items-center gap-3 px-6 text-center">
                 <p className="text-white text-sm tracking-widest uppercase">
                     Recently Completed Work
                 </p>
-                <h2 className="text-white text-4xl font-bold">
+                <h2 className="text-white text-2xl sm:text-3xl lg:text-4xl font-bold">
                     Explore Our Projects
                 </h2>
             </div>
 
             {/* Slider container */}
-            <div className="w-[1392px] overflow-hidden py-6">
+            <div className="w-full max-w-[1392px] overflow-hidden py-6 px-6 sm:px-10 lg:px-0">
                 <div
-                    className="flex gap-6 transition-transform duration-700 ease-in-out items-center"
-                    style={{ transform: `translateX(-${activeIndex * (cardWidth + gap)}px)` }}
+                    ref={trackRef}
+                    className="flex gap-4 sm:gap-6 transition-transform duration-700 ease-in-out items-center"
+                    style={{ transform: `translateX(-${activeIndex * slideStep}px)` }}
                 >
                     {projects.map((project, index) => {
                         const isActive = index === activeIndex + 1;
@@ -50,7 +66,7 @@ export default function RecentlyCompleted() {
                         return (
                             <div
                                 key={index}
-                                className={`group relative w-[318px] h-[350px] rounded-[10px] overflow-hidden cursor-pointer flex-shrink-0
+                                className={`group relative w-[80vw] sm:w-[340px] lg:w-[318px] max-w-[318px] h-[260px] sm:h-[320px] lg:h-[350px] rounded-[10px] overflow-hidden cursor-pointer flex-shrink-0
                                             border transition-all duration-500 ${isActive
                                         ? "border-[#F7C35F] scale-110 z-10"
                                         : "border-transparent scale-100"
@@ -67,17 +83,17 @@ export default function RecentlyCompleted() {
                                     <>
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
 
-                                        <div className="absolute bottom-0 left-0 right-0 p-5 flex items-center justify-between">
+                                        <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 flex items-center justify-between">
                                             <div>
                                                 <p className="text-[#F7C35F] text-xs tracking-widest mb-1">
                                                     {project.category}
                                                 </p>
-                                                <p className="text-white font-semibold">{project.title}</p>
+                                                <p className="text-white font-semibold text-sm sm:text-base">{project.title}</p>
                                             </div>
                                             <img
                                                 src="/material-symbols_line-start-arrow-notch.png"
                                                 alt="arrow"
-                                                className="w-9 h-9 flex-shrink-0"
+                                                className="w-7 h-7 sm:w-9 sm:h-9 flex-shrink-0"
                                             />
                                         </div>
                                     </>
@@ -94,7 +110,7 @@ export default function RecentlyCompleted() {
                     <button
                         key={index}
                         onClick={() => setActiveIndex(index)}
-                        className={`w-2.5 h-2.5 rounded-full transition-all ${activeIndex === index ? "bg-[#F7C35F] w-6" : "bg-white/40"
+                        className={`h-2.5 rounded-full transition-all ${activeIndex === index ? "bg-[#F7C35F] w-6" : "bg-white/40 w-2.5"
                             }`}
                     />
                 ))}

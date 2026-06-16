@@ -40,12 +40,12 @@ export default function ContactUs() {
                 }}
             />
 
-            <div className="relative z-10 flex flex-col lg:flex-row gap-[133px] py-[100px] px-[12.5%]">
+            <div className="relative z-10 flex flex-col lg:flex-row gap-12 sm:gap-16 lg:gap-[133px] py-16 sm:py-20 lg:py-[100px] px-6 sm:px-10 lg:px-[12.5%]">
                 {/* معلومات التواصل */}
-                <div className="flex flex-col gap-[45px]">
-                    <div className="flex flex-col gap-5">
-                        <p className="text-white font-centuryGothic text-xl">Contact Now</p>
-                        <h2 className="text-white font-livvic text-[50px] font-bold">
+                <div className="flex flex-col gap-8 sm:gap-[45px]">
+                    <div className="flex flex-col gap-4 sm:gap-5">
+                        <p className="text-white font-centuryGothic text-lg sm:text-xl">Contact Now</p>
+                        <h2 className="text-white font-livvic text-3xl sm:text-4xl lg:text-[50px] font-bold">
                             GET IN TOUCH NOW
                         </h2>
                     </div>
@@ -94,7 +94,7 @@ export default function ContactUs() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Your Name"
-                        className="rounded-[10px] bg-[#263C28] text-white/80 font-inter text-base py-[25px] px-[22px] outline-none focus:ring-1 focus:ring-[#F7C35F]"
+                        className="rounded-[10px] bg-[#263C28] text-white/80 font-inter text-base py-4 px-5 lg:py-[25px] lg:px-[22px] outline-none focus:ring-1 focus:ring-[#F7C35F]"
                     />
                     <input
                         type="tel"
@@ -102,7 +102,7 @@ export default function ContactUs() {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="Phone Number"
-                        className="rounded-[10px] bg-[#263C28] text-white/80 font-inter text-base py-[25px] px-[22px] outline-none focus:ring-1 focus:ring-[#F7C35F]"
+                        className="rounded-[10px] bg-[#263C28] text-white/80 font-inter text-base py-4 px-5 lg:py-[25px] lg:px-[22px] outline-none focus:ring-1 focus:ring-[#F7C35F]"
                     />
                     <input
                         type="email"
@@ -110,7 +110,7 @@ export default function ContactUs() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="Your Email"
-                        className="rounded-[10px] bg-[#263C28] text-white/80 font-inter text-base py-[25px] px-[22px] outline-none focus:ring-1 focus:ring-[#F7C35F]"
+                        className="rounded-[10px] bg-[#263C28] text-white/80 font-inter text-base py-4 px-5 lg:py-[25px] lg:px-[22px] outline-none focus:ring-1 focus:ring-[#F7C35F]"
                     />
                     <textarea
                         name="message"
@@ -118,11 +118,11 @@ export default function ContactUs() {
                         onChange={handleChange}
                         placeholder="Your Message"
                         rows={5}
-                        className="rounded-[10px] bg-[#263C28] text-white/80 font-inter text-base py-[25px] px-[22px] outline-none resize-none focus:ring-1 focus:ring-[#F7C35F]"
+                        className="rounded-[10px] bg-[#263C28] text-white/80 font-inter text-base py-4 px-5 lg:py-[25px] lg:px-[22px] outline-none resize-none focus:ring-1 focus:ring-[#F7C35F]"
                     />
                     <button
                         type="submit"
-                        className="self-start rounded-[20px] bg-[#F7C35F] text-[#1A1A1A] font-livvic text-[15px] font-medium py-[25px] px-[50px] hover:bg-[#f7cc35] transition-colors"
+                        className="self-start rounded-[20px] bg-[#F7C35F] text-[#1A1A1A] font-livvic text-[15px] font-medium py-4 px-8 lg:py-[25px] lg:px-[50px] hover:bg-[#f7cc35] transition-colors"
                     >
                         Send Message
                     </button>

@@ -14,12 +14,12 @@ export default function Clients() {
     const displayLogos = isSlider ? [...logos, ...logos] : logos;
 
     return (
-        <section className="bg-[#263C28] border-t border-white/20 py-[100px] overflow-hidden">
+        <section className="bg-[#263C28] border-t border-white/20 py-16 sm:py-20 lg:py-[100px] overflow-hidden">
             <div
                 className={
                     isSlider
                         ? "flex items-center gap-6 w-max animate-marquee hover:[animation-play-state:paused]"
-                        : "flex items-center justify-center gap-6 px-[12.5%]"
+                        : "flex items-center justify-center flex-wrap gap-6 px-6 sm:px-10 lg:px-[12.5%]"
                 }
             >
                 {displayLogos.map((logo, index) => (

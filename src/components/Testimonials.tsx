@@ -54,7 +54,7 @@ export default function Testimonials() {
     const current = testimonials[activeIndex];
 
     return (
-        <section className="relative bg-[#263C28] overflow-hidden py-[100px]">
+        <section className="relative bg-[#263C28] overflow-hidden py-16 sm:py-20 lg:py-[100px]">
             {/* الخلفية المخططة */}
             <div
                 className="absolute inset-0"
@@ -70,16 +70,16 @@ export default function Testimonials() {
                     <p className="text-[#ACACAC] text-sm tracking-[3px] uppercase mb-4">
                         Our Testimonials
                     </p>
-                    <h2 className="text-white font-bold text-4xl md:text-5xl uppercase">
+                    <h2 className="text-white font-bold text-2xl sm:text-4xl md:text-5xl uppercase">
                         What They&apos;re Taking About
                     </h2>
                     <div className="w-12 h-[2px] bg-[#F7C35F] mx-auto mt-6" />
                 </div>
 
                 {/* المحتوى */}
-                <div className="flex flex-col md:flex-row justify-center gap-10 md:gap-14 mt-20">
+                <div className="flex flex-col md:flex-row justify-center gap-10 md:gap-14 mt-12 sm:mt-16 md:mt-20">
                     {/* الصورة + علامة التنصيص */}
-                    <div className="relative shrink-0 w-[280px] h-[280px]">
+                    <div className="relative shrink-0 w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] mx-auto md:mx-0">
                         <div
                             key={activeIndex}
                             className="w-full h-full rounded-full overflow-hidden transition-opacity duration-500"

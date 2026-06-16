@@ -50,9 +50,9 @@ export default function Footer() {
 
     return (
         <footer className="relative bg-[#334B35]">
-            <div className="px-[12.5%] py-[90px] flex flex-wrap justify-between gap-y-12 gap-x-10">
+            <div className="px-6 sm:px-10 lg:px-[12.5%] py-12 sm:py-16 lg:py-[90px] flex flex-wrap justify-center sm:justify-between text-center sm:text-left gap-y-12 gap-x-10">
                 {/* Logo + Description + Socials */}
-                <div className="flex flex-col gap-[34px] max-w-[630px]">
+                <div className="flex flex-col items-center sm:items-start gap-[34px] w-full sm:w-auto sm:max-w-[630px]">
                     <div className="flex flex-col gap-[25px]">
                         <Image
                             src="/logo.png"
@@ -73,7 +73,7 @@ export default function Footer() {
                 </div>
 
                 {/* Useful Links */}
-                <div className="flex flex-col gap-[30px]">
+                <div className="flex flex-col items-center sm:items-start gap-[30px]">
                     <p className="text-white font-livvic text-[22px] font-semibold">
                         Useful Links
                     </p>
@@ -92,7 +92,7 @@ export default function Footer() {
                 </div>
 
                 {/* Newsletter */}
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col items-center sm:items-start gap-6 w-full sm:w-auto">
                     <div className="flex flex-col gap-[30px] max-w-[315px]">
                         <p className="text-white font-livvic text-[22px] font-semibold">
                             Newsletter
@@ -106,7 +106,7 @@ export default function Footer() {
 
                     <form
                         onSubmit={handleSubscribe}
-                        className="relative w-[315px] h-[55px]"
+                        className="relative w-full max-w-[315px] h-[55px]"
                     >
                         <input
                             type="email"
@@ -131,7 +131,7 @@ export default function Footer() {
             {/* Bottom Footer */}
             <div className="h-px w-full bg-white/20" />
 
-            <div className="px-[12.5%] py-[25px] flex flex-wrap items-center justify-between gap-4">
+            <div className="px-6 sm:px-10 lg:px-[12.5%] py-[25px] flex flex-wrap items-center justify-center sm:justify-between text-center gap-4">
                 <p className="text-white font-centuryGothic text-[15px]">
                     Copyright © Smart Agro. All Rights Reserved.
                 </p>

@@ -76,24 +76,24 @@ export default function FromTheBlog() {
                 <Image src="/Style.png" alt="" fill className="object-cover opacity-40" />
             </div>
 
-            <div className="relative z-10 pt-[100px] pb-[100px] px-[12.5%]">
+            <div className="relative z-10 pt-16 pb-16 sm:pt-20 sm:pb-20 lg:pt-[100px] lg:pb-[100px] px-6 sm:px-10 lg:px-[12.5%]">
                 {/* العنوان */}
-                <div className="flex flex-col items-center gap-5 text-center">
-                    <p className="text-white font-centuryGothic text-xl">FROM THE BLOG</p>
-                    <h2 className="text-white font-livvic text-[50px] font-bold">
+                <div className="flex flex-col items-center gap-4 sm:gap-5 text-center">
+                    <p className="text-white font-centuryGothic text-lg sm:text-xl">FROM THE BLOG</p>
+                    <h2 className="text-white font-livvic text-3xl sm:text-4xl lg:text-[50px] font-bold">
                         News &amp; Articles
                     </h2>
                 </div>
 
                 {/* المقالات */}
-                <div className="grid grid-cols-3 gap-[30px] mt-[103px]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[30px] mt-12 sm:mt-16 lg:mt-[103px]">
                     {posts.map((post, index) => (
                         <article
                             key={index}
                             className="relative rounded-[10px] overflow-hidden bg-[#2D442F]"
                         >
                             {/* الصورة + شارة التاريخ */}
-                            <div className="relative w-full h-[364px]">
+                            <div className="relative w-full h-[220px] sm:h-[280px] lg:h-[364px]">
                                 <Image
                                     src={post.image}
                                     alt={post.title}
