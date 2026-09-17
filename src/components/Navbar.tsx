@@ -1,98 +1,17 @@
 "use client";
-
-import { useState } from "react";
-import Link from "next/link";
+import { useRef, useState } from "react";
 import Image from "next/image";
-
-import { usePathname } from "next/navigation";
-
-const links = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About Us" },
-    { href: "/products", label: "Our Products" },
-    { href: "/projects", label: "Projects" },
-    { href: "/services", label: "Services" },
-    { href: "/news", label: "News" },
-    { href: "/contact", label: "Contact Us" },
-];
-
+import { navigation } from "@/lib/navigation";
 export default function Navbar() {
-    const pathname = usePathname();
-    const [isOpen, setIsOpen] = useState(false);
-
-    return (
-        <nav className="absolute top-0 left-0 z-20 w-full bg-[#334B35]/80 px-6 sm:px-10 lg:px-[12.5%] h-[80px] lg:h-[110px] flex items-center justify-between">
-            {/* Logo */}
-            <Image
-                src="/logo.png"
-                alt="Smart Agro Logo"
-                width={197}
-                height={31}
-                priority
-                className="object-contain w-[140px] lg:w-[197px] h-auto [filter:drop-shadow(0px_4px_4px_rgba(0,0,0,0.25))]"
-            />
-
-            {/* Desktop Links */}
-            <ul className="hidden lg:flex items-center gap-[50px]">
-                {links.map((link) => (
-                    <li key={link.href}>
-                        <Link
-                            href={link.href}
-                            className={`text-[18px] font-normal leading-[30px] transition pb-1 inline-block ${pathname === link.href
-                                    ? "text-[#F7C35F] border-b-2 border-[#F7C35F]"
-                                    : "text-white hover:text-[#F7C35F]"
-                                }`}
-                        >
-                            {link.label}
-                        </Link>
-                    </li>
-                ))}
-            </ul>
-
-            {/* Mobile menu button */}
-            <button
-                type="button"
-                onClick={() => setIsOpen((prev) => !prev)}
-                aria-label={isOpen ? "Close menu" : "Open menu"}
-                aria-expanded={isOpen}
-                className="lg:hidden relative z-30 flex h-10 w-10 flex-col items-center justify-center gap-[6px]"
-            >
-                <span
-                    className={`block h-[2px] w-6 bg-white transition-all duration-300 ${isOpen ? "translate-y-[8px] rotate-45" : ""
-                        }`}
-                />
-                <span
-                    className={`block h-[2px] w-6 bg-white transition-all duration-300 ${isOpen ? "opacity-0" : "opacity-100"
-                        }`}
-                />
-                <span
-                    className={`block h-[2px] w-6 bg-white transition-all duration-300 ${isOpen ? "-translate-y-[8px] -rotate-45" : ""
-                        }`}
-                />
-            </button>
-
-            {/* Mobile menu panel */}
-            <div
-                className={`lg:hidden absolute left-0 top-[80px] w-full overflow-hidden bg-[#263C28] shadow-xl transition-all duration-300 ease-in-out ${isOpen ? "max-h-[420px] opacity-100" : "max-h-0 opacity-0"
-                    }`}
-            >
-                <ul className="flex flex-col px-6 py-4">
-                    {links.map((link) => (
-                        <li key={link.href} className="border-b border-white/10 last:border-none">
-                            <Link
-                                href={link.href}
-                                onClick={() => setIsOpen(false)}
-                                className={`block py-3 text-[16px] font-normal transition ${pathname === link.href
-                                        ? "text-[#F7C35F]"
-                                        : "text-white hover:text-[#F7C35F]"
-                                    }`}
-                            >
-                                {link.label}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </nav>
-    );
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = useRef<HTMLButtonElement>(null);
+  return <header className="absolute inset-x-0 top-0 z-20 bg-[#334B35]/95">
+    <a href="#main" className="skip-link">Skip to content</a>
+    <nav aria-label="Main navigation" className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-8 px-6 sm:px-10 xl:h-24 xl:px-10" onKeyDown={(event) => { if (event.key === "Escape" && isOpen) { setIsOpen(false); toggle.current?.focus(); } }}>
+      <a href="#home" aria-label="Smart Agro home" className="shrink-0" onClick={() => setIsOpen(false)}><Image src="/logo.png" alt="Smart Agro" width={197} height={31} preload className="h-auto w-[150px] xl:w-[197px]" /></a>
+      <ul className="hidden items-center gap-6 xl:flex">{navigation.map((link) => <li key={link.href}><a href={link.href} className="whitespace-nowrap py-3 text-base hover:text-[#F7C35F]">{link.label}</a></li>)}</ul>
+      <button ref={toggle} type="button" aria-controls="mobile-menu" aria-expanded={isOpen} onClick={() => setIsOpen(!isOpen)} className="min-h-11 rounded-lg border border-white/30 px-4 xl:hidden">{isOpen ? "Close menu" : "Menu"}</button>
+      <div id="mobile-menu" hidden={!isOpen} className="absolute inset-x-0 top-20 max-h-[calc(100dvh-5rem)] overflow-y-auto bg-[#263C28] shadow-xl xl:hidden"><ul className="px-6 py-4">{navigation.map((link) => <li key={link.href}><a href={link.href} onClick={() => setIsOpen(false)} className="block border-b border-white/10 py-3 hover:text-[#F7C35F]">{link.label}</a></li>)}</ul></div>
+    </nav>
+  </header>;
 }

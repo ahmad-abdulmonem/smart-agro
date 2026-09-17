@@ -6,18 +6,18 @@ import Navbar from "@/components/Navbar";
 const livvic = Livvic({
   subsets: ["latin"],
   weight: ["500", "700"],
-  variable: "--font-livvic",
+  variable: "--font-livvic-source",
 });
 
 const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500"],
-  variable: "--font-inter",
+  variable: "--font-inter-source",
 });
 
 export const metadata: Metadata = {
   title: "Smart Agro",
-  description: "Smart Agro Website",
+  description: "Explore thoughtful agriculture, seasonal produce, and ideas for a better growing future with Smart Agro.",
 };
 
 export default function RootLayout({
