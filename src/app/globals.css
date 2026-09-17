@@ -4,30 +4,22 @@
   font-family: 'CenturyGothic';
   src: url('/fonts/centurygothic.ttf') format('truetype');
   font-weight: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'CenturyGothic';
   src: url('/fonts/centurygothic_bold.ttf') format('truetype');
   font-weight: bold;
-}
-
-@font-face {
-  font-family: 'Mistral';
-  src: url('/fonts/mistral.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Johnstown Demo';
-  src: url('/fonts/johnstown_demo.ttf') format('truetype');
+  font-display: swap;
 }
 
 @theme inline {
-  --font-livvic: var(--font-livvic);
-  --font-inter: var(--font-inter);
+  --font-livvic: var(--font-livvic-source);
+  --font-inter: var(--font-inter-source);
   --font-centuryGothic: 'CenturyGothic', sans-serif;
-  --font-johnstownDemo: 'Johnstown Demo', cursive;
-  --font-mistral: 'Mistral', cursive;
+  --font-johnstownDemo: 'CenturyGothic', sans-serif;
+  --font-mistral: 'CenturyGothic', sans-serif;
 }
 
 body {
@@ -37,9 +29,9 @@ body {
 }
 
 html, body {
-  height: 100%;
+  min-height: 100%;
   margin: 0;
-  overflow-x: hidden;
+
 }
 
 *, *::before, *::after {
@@ -58,3 +50,160 @@ html, body {
 .animate-marquee {
     animation: marquee 25s linear infinite;
 }
+html { scroll-behavior: smooth; scrollbar-color: #8fa779 #263c28; scrollbar-width: thin; }
+.section-shell { width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: 24px; }
+.section-space { padding-block: 64px; }
+@media (min-width: 640px) {
+  .section-shell { padding-inline: 40px; }
+  .section-space { padding-block: 80px; }
+}
+section[id] { scroll-margin-top: 24px; }
+:focus-visible { outline: 3px solid #f7c35f; outline-offset: 5px; }
+button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+.skip-link { position: absolute; left: 24px; top: -100px; padding: 12px 20px; background: #f7c35f; color: #263c28; z-index: 50; }
+.skip-link:focus { top: 12px; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #263c28; }
+::-webkit-scrollbar-thumb { background: #8fa779; border: 2px solid #263c28; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #f7c35f; }
+.food-choice {
+  transition: background-color 250ms ease, transform 350ms cubic-bezier(.22,1,.36,1), box-shadow 350ms ease;
+}
+.food-choice img { transition: transform 400ms cubic-bezier(.22,1,.36,1); }
+.food-choice[aria-pressed="true"] { transform: translateY(-6px); box-shadow: 0 12px 28px #0003; }
+.food-choice[aria-pressed="true"] img { transform: scale(1.15) rotate(-5deg); }
+.motion-button { transition: background-color 200ms ease, translate 250ms ease, box-shadow 250ms ease; }
+.motion-button:active, .food-choice:active { scale: .97; }
+@media (hover: hover) {
+  .food-choice:hover { transform: translateY(-6px); }
+  .motion-button:hover { translate: 0 -3px; box-shadow: 0 10px 25px #0003; }
+  header nav a { transition: color 200ms ease; }
+  #news article img { transition: transform 700ms cubic-bezier(.22,1,.36,1); }
+  #news article:hover img { transform: scale(1.04); }
+}
+@keyframes field-note-open {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+#news details[open] > p { animation: field-note-open 300ms ease both; }
+.product-detail { animation: field-note-open 300ms ease both; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .hero-atmosphere { display: none; }
+  .food-choice, .food-choice img, #news article img { transform: none !important; }
+  .motion-button { translate: none !important; scale: none !important; }
+}
+
+/* Farm photography direction: open layouts, large crops, restrained controls. */
+:root { --farm-forest: #263c28; --farm-leaf: #334b35; --farm-gold: #f7c35f; --farm-white: #fff; }
+.farm-caption { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--farm-gold); margin-bottom: 24px; }
+.farm-heading { font-family: var(--font-livvic), sans-serif; font-size: clamp(38px, 4.7vw, 66px); font-weight: 600; line-height: 1.05; letter-spacing: -.045em; }
+.farm-body { font-size: 16px; line-height: 1.8; color: #ffffffc9; margin-top: 24px; max-width: 440px; }
+.farm-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 48px; margin-top: 28px; padding-block: 10px; border-bottom: 1px solid #f7c35f80; color: var(--farm-gold); font-size: 14px; font-weight: 700; transition: color 180ms, border-color 180ms; }
+.farm-link:hover { color: white; border-color: white; }
+.farm-link > span[aria-hidden] { font-size: 24px; }
+.farm-hero { position: relative; min-height: 850px; min-height: min(920px, 100svh); display: flex; align-items: flex-end; padding-block: 160px 65px; }
+.farm-hero > img { object-position: center 65%; }
+.farm-hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg,#152917ae, #15291718), linear-gradient(0deg,#152917bb,transparent 65%); }
+.farm-hero-content { position: relative; }
+.farm-hero h1 { font-family: var(--font-livvic),sans-serif; font-size: clamp(66px, 10.5vw, 148px); font-weight: 600; letter-spacing: -.065em; line-height: .9; }
+.farm-hero h1 span { color: var(--farm-gold); }
+.farm-hero .farm-caption { color: white; margin-bottom: 35px; }
+.farm-hero-bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; margin-top: 42px; }
+.farm-hero-bottom p { font-size: 16px; line-height: 1.6; }
+.farm-hero-bottom .farm-link { margin: 0; min-width: 235px; }
+.farm-intro { display: grid; grid-template-columns: .9fr 1.1fr; gap: 12%; align-items: center; }
+.farm-intro-copy { padding-block: 35px; }
+.farm-intro-photo { position: relative; height: 520px; margin-bottom: 25px; }
+.farm-intro-photo figcaption { position: absolute; top: 100%; padding-top: 12px; font-size: 12px; color: #ffffff99; }
+.farm-produce { background: var(--farm-leaf); }
+.farm-section-top { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 45px; }
+.farm-section-top > p { font-size: 14px; line-height: 1.7; color: #ffffffb3; }
+.farm-produce-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 7%; }
+.farm-produce-photo { position: relative; min-height: 530px; }
+.farm-produce-selector { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); border-bottom: 1px solid #ffffff30; gap: 6px; }
+.farm-produce-choice { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 12px 0 18px; font-size: 10px; border-bottom: 2px solid transparent; transition: border-color 180ms, color 180ms; }
+.farm-produce-choice[aria-pressed="true"] { border-color: var(--farm-gold); color: var(--farm-gold); }
+.farm-produce-choice:hover { color: var(--farm-gold); }
+.farm-produce-detail { padding-top: 36px; }
+.farm-produce-detail .farm-caption { margin-bottom: 10px; }
+.farm-produce-detail h3 { font-family: var(--font-livvic),sans-serif; font-size: 48px; letter-spacing: -.04em; font-weight: 600; }
+.farm-produce-detail .farm-body { min-height: 116px; margin-top: 12px; }
+.farm-produce-detail dl { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; }
+.farm-produce-detail dt { color: #ffffff88; font-size: 11px; margin-bottom: 8px; }
+.farm-produce-detail dd { font-size: 13px; line-height: 1.6; }
+.farm-project-layout { display: grid; grid-template-columns: 1.6fr 1fr; gap: 5%; }
+.farm-project-photo { position: relative; min-height: 530px; overflow: hidden; }
+.farm-project-photo:after { content: ''; position: absolute; inset: 40% 0 0; background: linear-gradient(transparent,#142417dc); pointer-events: none; }
+.farm-project-caption { position: absolute; z-index: 1; bottom: 35px; left: 35px; right: 30px; }
+.farm-project-caption p { font-size: 12px; margin-bottom: 12px; color: var(--farm-gold); }
+.farm-project-caption h3 { font-family: var(--font-livvic),sans-serif; font-size: 40px; line-height: 1.1; letter-spacing: -.035em; }
+.farm-project-choice { width: 100%; min-height: 77px; border-bottom: 1px solid #ffffff25; display: flex; text-align: left; justify-content: space-between; align-items: center; gap: 16px; font-size: 18px; padding: 18px 0; color: #ffffff88; transition: color 200ms; }
+.farm-project-choice[aria-pressed="true"],.farm-project-choice:hover { color: var(--farm-gold); }
+.farm-project-description { min-height: 100px; font-size: 14px; }
+.farm-approach { padding-top: 25px; }
+.farm-approach-layout { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 10%; }
+.farm-approach .farm-heading span { color: var(--farm-gold); }
+.farm-approach-photo { position: relative; min-height: 580px; }
+.farm-notes-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; align-items: start; gap: 32px; margin-top: 44px; }
+.farm-note:nth-child(2) { margin-top: 75px; }
+.farm-note:nth-child(3) { margin-top: 145px; }
+.farm-note-copy { padding-top: 23px; }
+.farm-note-copy h3 { font-size: 23px; letter-spacing: -.025em; }
+.farm-note-copy > p { font-size: 14px; }
+.farm-note summary { font-size: 13px; }
+@media(min-width: 768px) { .section-space { padding-block: 110px; } .farm-approach.section-space { padding-top: 25px; } }
+@media(max-width: 767px) {
+ .farm-hero { min-height: 730px; min-height: 95svh; padding-block: 150px 45px; }
+ .farm-hero h1 { font-size: clamp(58px,12.7vw,96px); }
+ .farm-hero-bottom { flex-direction: column; align-items: flex-start; gap: 24px; margin-top: 30px; }
+ .farm-hero-bottom p { font-size: 14px; }
+ .farm-intro,.farm-produce-layout,.farm-project-layout,.farm-approach-layout { grid-template-columns: 1fr; gap: 35px; }
+ .farm-intro-copy { padding: 0; }
+ .farm-intro-photo { height: 380px; }
+ .farm-section-top { display: block; margin-bottom: 30px; }
+ .farm-section-top > p { margin-top: 20px; }
+ .farm-produce-photo { min-height: 280px; }
+ .farm-produce-detail .farm-body { min-height: 140px; }
+ .farm-produce-selector { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 4px 12px; }
+ .farm-produce-choice { font-size: 12px; padding: 10px 0; gap: 8px; }
+ .farm-produce-choice img { width: 26px; height: 26px; }
+ .farm-project-photo { min-height: 370px; }
+ .farm-project-caption { bottom: 25px; left: 25px; }
+ .farm-project-caption h3 { font-size: 32px; }
+ .farm-project-choice { min-height: 62px; font-size: 16px; }
+ .farm-project-description { min-height: 80px; }
+ .farm-approach-photo { min-height: 430px; }
+ .farm-notes-grid { grid-template-columns: 1fr; gap: 44px; }
+ .farm-note:nth-child(n) { margin-top: 0; }
+ .farm-note:not(:first-child) > div:first-child { aspect-ratio: 16/9; }
+}
+@media(max-width: 480px) {
+ .farm-produce-selector { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 4px 12px; }
+ .farm-produce-choice { font-size: 12px; padding: 10px 0; gap: 8px; }
+}
+
+/* Gold frames and motion requested for the photography-led layout. */
+.farm-intro-photo > img, .farm-produce-photo, .farm-project-photo, .farm-approach-photo, .farm-note > div:first-child {
+ border: 2px solid #b79a58;
+ border-radius: 8px;
+ box-shadow: 0 0 0 5px #f7c35f0b;
+}
+.farm-produce-photo, .farm-approach-photo, .farm-note > div:first-child { overflow: hidden; }
+.farm-produce-photo > img, .farm-approach-photo > img, .farm-note > div:first-child > img { transition: transform 1100ms cubic-bezier(.2,.65,.25,1); }
+.farm-intro-photo > img { transition: filter 650ms ease; }
+.farm-project-photo { transition: border-color 300ms ease, box-shadow 300ms ease; }
+.hero-effects-control { top: 120px; bottom: auto; }
+.farm-hero { border-bottom: 2px solid #b79a58; }
+.farm-hero-content { pointer-events: none; }
+.farm-hero-content a { pointer-events: auto; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+ .farm-produce-photo:hover > img, .farm-approach-photo:hover > img, .farm-note:hover > div:first-child > img { transform: scale(1.065); }
+ .farm-intro-photo:hover > img { filter: brightness(1.08); }
+ .farm-project-photo:hover { border-color: #f7c35f; box-shadow: 0 0 0 5px #f7c35f15; }
+ .farm-produce-choice:hover img { transform: translateY(-4px) rotate(-7deg); }
+ .farm-produce-choice img { transition: transform 300ms ease; }
+}
+@media(max-width: 767px) { .hero-effects-control { top: 105px; } }
